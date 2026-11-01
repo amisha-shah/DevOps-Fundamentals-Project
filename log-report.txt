@@ -1,0 +1,75 @@
+======================================
+       LINUX SYSTEM LOG REPORT
+======================================
+
+1. FAILED LOGIN ATTEMPTS
+2026-10-24T14:57:07.885581+00:00 ip-10-0-1-71 sshd-session[16329]: Disconnecting authenticating user root 95.165.214.194 port 42290: Too many authentication failures [preauth]
+2026-10-24T14:57:13.723876+00:00 ip-10-0-1-71 sshd-session[16331]: Disconnecting authenticating user root 95.165.214.194 port 42792: Too many authentication failures [preauth]
+2026-10-24T14:57:20.746692+00:00 ip-10-0-1-71 sshd-session[16333]: Disconnecting authenticating user root 95.165.214.194 port 43302: Too many authentication failures [preauth]
+2026-10-24T14:57:39.872194+00:00 ip-10-0-1-71 sshd-session[16339]: Disconnecting invalid user ftpuser 95.165.214.194 port 44760: Too many authentication failures [preauth]
+2026-10-24T14:57:46.225909+00:00 ip-10-0-1-71 sshd-session[16341]: Disconnecting invalid user ftpuser 95.165.214.194 port 45266: Too many authentication failures [preauth]
+2026-10-24T14:57:59.392845+00:00 ip-10-0-1-71 sshd-session[16345]: Disconnecting invalid user test2 95.165.214.194 port 46258: Too many authentication failures [preauth]
+2026-10-24T14:58:06.086406+00:00 ip-10-0-1-71 sshd-session[16347]: Disconnecting invalid user test2 95.165.214.194 port 46804: Too many authentication failures [preauth]
+2026-10-24T14:58:17.365498+00:00 ip-10-0-1-71 sshd-session[16351]: Disconnecting invalid user usuario 95.165.214.194 port 47630: Too many authentication failures [preauth]
+2026-10-24T14:58:23.577943+00:00 ip-10-0-1-71 sshd-session[16353]: Disconnecting invalid user usuario 95.165.214.194 port 48172: Too many authentication failures [preauth]
+2026-10-24T14:58:36.186151+00:00 ip-10-0-1-71 sshd-session[16357]: Disconnecting invalid user admin 95.165.214.194 port 49072: Too many authentication failures [preauth]
+2026-11-01T20:31:58.107617+00:00 ip-10-0-1-71 sudo: ubuntu : TTY=/dev/pts/0 ; PWD=/home/ubuntu/DevOps-Mini-Project ; USER=root ; COMMAND=/usr/bin/bash -c \n{\necho \"======================================\"\necho \"       LINUX SYSTEM LOG REPORT\"\necho \"======================================\"\necho \"\"\necho \"1. FAILED LOGIN ATTEMPTS\"\ngrep -Ei \"Failed password|authentication failure\" /var/log/auth.log | tail -20\necho \"\"\necho \"2. SSH LOGIN ACTIVITY\"\ngrep -Ei \"Accepted password|Accepted publickey\" /var/log/auth.log | tail -20\necho \"\"\necho \"3. SYSTEM ERRORS\"\njournalctl -p err -n 20 --no-pager\necho \"\"\necho \"4. WARNING MESSAGES\"\njournalctl -p warning -n 20 --no-pager\necho \"\"\necho \"Report generated on:\"\ndate\n} > log-report.txt\nsudo bash -c 
+2026-11-01T20:34:58.782983+00:00 ip-10-0-1-71 sudo: ubuntu : TTY=/dev/pts/0 ; PWD=/home/ubuntu/DevOps-Mini-Project ; USER=root ; COMMAND=/usr/bin/bash -c \n{\necho \"======================================\"\necho \"       LINUX SYSTEM LOG REPORT\"\necho \"======================================\"\necho \"\"\necho \"1. FAILED LOGIN ATTEMPTS\"\ngrep -Ei \"Failed password|authentication failure\" /var/log/auth.log | tail -20\necho \"\"\necho \"2. SSH LOGIN ACTIVITY\"\ngrep -Ei \"Accepted password|Accepted publickey\" /var/log/auth.log | tail -20\necho \"\"\necho \"3. SYSTEM ERRORS\"\njournalctl -p err -n 20 --no-pager\necho \"\"\necho \"4. WARNING MESSAGES\"\njournalctl -p warning -n 20 --no-pager\necho \"\"\necho \"Report generated on:\"\ndate\n} > /home/ubuntu/DevOps-Mini-Project/log-report.txt\n
+
+2. SSH LOGIN ACTIVITY
+2026-10-23T10:47:55.597636+00:00 ip-10-0-1-71 sshd-session[1202]: Accepted publickey for ubuntu from 13.239.158.4 port 60314 ssh2: ED25519 SHA256:Kal8S77IQAosyzSnDvQkdoDo/ABZrLyX7Z0EcHY3Tbs
+2026-10-23T12:46:31.937389+00:00 ip-10-0-1-71 sshd-session[1819]: Accepted publickey for ubuntu from 13.239.158.5 port 41411 ssh2: ED25519 SHA256:+HF/je0TxTawPbtB2ynvlB1xdPPcv9vomj0uCKmqRYc
+2026-10-23T12:48:47.001057+00:00 ip-10-0-1-71 sshd-session[1025]: Accepted publickey for ubuntu from 13.239.158.3 port 28231 ssh2: ED25519 SHA256:hicQmTJYOKzVBdU3cRFrsg4MQaaIjjNLd3R3UBAdk6o
+2026-11-01T19:50:01.966848+00:00 ip-10-0-1-71 sshd-session[1094]: Accepted publickey for ubuntu from 13.239.158.3 port 6436 ssh2: ED25519 SHA256:teN15MDH95+N2z9W7DeTPkRpSreNcHbwzskDWPl+PSw
+2026-11-01T20:14:25.743619+00:00 ip-10-0-1-71 sshd-session[1647]: Accepted publickey for ubuntu from 13.239.158.5 port 59103 ssh2: ED25519 SHA256:mex2+Z+hYAIql428zqCfKj+8w29dHYo1eGq/4UBd1y4
+2026-11-01T20:26:39.819474+00:00 ip-10-0-1-71 sshd-session[2186]: Accepted publickey for ubuntu from 13.239.158.3 port 55833 ssh2: ED25519 SHA256:Z+0Pd3CkMa2E8IvlMzkdZNV3pem8Lh7j21ujRiev5tU
+2026-11-01T20:31:58.107617+00:00 ip-10-0-1-71 sudo: ubuntu : TTY=/dev/pts/0 ; PWD=/home/ubuntu/DevOps-Mini-Project ; USER=root ; COMMAND=/usr/bin/bash -c \n{\necho \"======================================\"\necho \"       LINUX SYSTEM LOG REPORT\"\necho \"======================================\"\necho \"\"\necho \"1. FAILED LOGIN ATTEMPTS\"\ngrep -Ei \"Failed password|authentication failure\" /var/log/auth.log | tail -20\necho \"\"\necho \"2. SSH LOGIN ACTIVITY\"\ngrep -Ei \"Accepted password|Accepted publickey\" /var/log/auth.log | tail -20\necho \"\"\necho \"3. SYSTEM ERRORS\"\njournalctl -p err -n 20 --no-pager\necho \"\"\necho \"4. WARNING MESSAGES\"\njournalctl -p warning -n 20 --no-pager\necho \"\"\necho \"Report generated on:\"\ndate\n} > log-report.txt\nsudo bash -c 
+2026-11-01T20:34:58.782983+00:00 ip-10-0-1-71 sudo: ubuntu : TTY=/dev/pts/0 ; PWD=/home/ubuntu/DevOps-Mini-Project ; USER=root ; COMMAND=/usr/bin/bash -c \n{\necho \"======================================\"\necho \"       LINUX SYSTEM LOG REPORT\"\necho \"======================================\"\necho \"\"\necho \"1. FAILED LOGIN ATTEMPTS\"\ngrep -Ei \"Failed password|authentication failure\" /var/log/auth.log | tail -20\necho \"\"\necho \"2. SSH LOGIN ACTIVITY\"\ngrep -Ei \"Accepted password|Accepted publickey\" /var/log/auth.log | tail -20\necho \"\"\necho \"3. SYSTEM ERRORS\"\njournalctl -p err -n 20 --no-pager\necho \"\"\necho \"4. WARNING MESSAGES\"\njournalctl -p warning -n 20 --no-pager\necho \"\"\necho \"Report generated on:\"\ndate\n} > /home/ubuntu/DevOps-Mini-Project/log-report.txt\n
+
+3. SYSTEM ERRORS
+Oct 23 10:09:21 ubuntu kernel: piix4_smbus 0000:00:01.3: SMBus base address uninitialized - upgrade BIOS or use force_addr=0xaddr
+Oct 23 12:47:13 ip-10-0-1-71 sshd-session[1819]: error: mm_reap: child terminated by signal 15
+-- Boot 019883c75d5149f8ac0c09691f914076 --
+Oct 23 12:47:49 ip-10-0-1-71 kernel: piix4_smbus 0000:00:01.3: SMBus base address uninitialized - upgrade BIOS or use force_addr=0xaddr
+Oct 23 17:46:13 ip-10-0-1-71 sshd-session[13784]: error: kex_exchange_identification: read: Connection reset by peer
+Oct 23 19:43:45 ip-10-0-1-71 sshd-session[13991]: error: kex_exchange_identification: read: Connection reset by peer
+Oct 23 21:46:19 ip-10-0-1-71 sshd-session[14173]: error: kex_exchange_identification: read: Connection reset by peer
+Oct 24 11:37:27 ip-10-0-1-71 sshd-session[16034]: error: kex_exchange_identification: read: Connection reset by peer
+Oct 24 14:57:07 ip-10-0-1-71 sshd-session[16329]: error: maximum authentication attempts exceeded for root from 95.165.214.194 port 42290 ssh2 [preauth]
+Oct 24 14:57:13 ip-10-0-1-71 sshd-session[16331]: error: maximum authentication attempts exceeded for root from 95.165.214.194 port 42792 ssh2 [preauth]
+Oct 24 14:57:20 ip-10-0-1-71 sshd-session[16333]: error: maximum authentication attempts exceeded for root from 95.165.214.194 port 43302 ssh2 [preauth]
+Oct 24 14:57:39 ip-10-0-1-71 sshd-session[16339]: error: maximum authentication attempts exceeded for invalid user ftpuser from 95.165.214.194 port 44760 ssh2 [preauth]
+Oct 24 14:57:46 ip-10-0-1-71 sshd-session[16341]: error: maximum authentication attempts exceeded for invalid user ftpuser from 95.165.214.194 port 45266 ssh2 [preauth]
+Oct 24 14:57:59 ip-10-0-1-71 sshd-session[16345]: error: maximum authentication attempts exceeded for invalid user test2 from 95.165.214.194 port 46258 ssh2 [preauth]
+Oct 24 14:58:06 ip-10-0-1-71 sshd-session[16347]: error: maximum authentication attempts exceeded for invalid user test2 from 95.165.214.194 port 46804 ssh2 [preauth]
+Oct 24 14:58:17 ip-10-0-1-71 sshd-session[16351]: error: maximum authentication attempts exceeded for invalid user usuario from 95.165.214.194 port 47630 ssh2 [preauth]
+Oct 24 14:58:23 ip-10-0-1-71 sshd-session[16353]: error: maximum authentication attempts exceeded for invalid user usuario from 95.165.214.194 port 48172 ssh2 [preauth]
+Oct 24 14:58:36 ip-10-0-1-71 sshd-session[16357]: error: maximum authentication attempts exceeded for invalid user admin from 95.165.214.194 port 49072 ssh2 [preauth]
+-- Boot 675054893eef4cf0939c810b9118c9f8 --
+Nov 01 19:49:49 ip-10-0-1-71 kernel: piix4_smbus 0000:00:01.3: SMBus base address uninitialized - upgrade BIOS or use force_addr=0xaddr
+
+4. WARNING MESSAGES
+Oct 24 14:58:06 ip-10-0-1-71 sshd-session[16347]: error: maximum authentication attempts exceeded for invalid user test2 from 95.165.214.194 port 46804 ssh2 [preauth]
+Oct 24 14:58:17 ip-10-0-1-71 sshd-session[16351]: error: maximum authentication attempts exceeded for invalid user usuario from 95.165.214.194 port 47630 ssh2 [preauth]
+Oct 24 14:58:23 ip-10-0-1-71 sshd-session[16353]: error: maximum authentication attempts exceeded for invalid user usuario from 95.165.214.194 port 48172 ssh2 [preauth]
+Oct 24 14:58:36 ip-10-0-1-71 sshd-session[16357]: error: maximum authentication attempts exceeded for invalid user admin from 95.165.214.194 port 49072 ssh2 [preauth]
+-- Boot 675054893eef4cf0939c810b9118c9f8 --
+Nov 01 19:49:48 ip-10-0-1-71 kernel: acpi PNP0A03:00: fail to add MMCONFIG information, can't access extended configuration space under this bridge
+Nov 01 19:49:48 ip-10-0-1-71 kernel: i8042: Warning: Keylock active
+Nov 01 19:49:49 ip-10-0-1-71 kernel: piix4_smbus 0000:00:01.3: SMBus base address uninitialized - upgrade BIOS or use force_addr=0xaddr
+Nov 01 19:49:50 ip-10-0-1-71 (udev-worker)[379]: enp39s0: Could not set WakeOnLan to off, ignoring: Operation not supported
+Nov 01 19:49:51 ip-10-0-1-71 kernel: faux_driver regulatory: Direct firmware load for regulatory.db failed with error -2
+Nov 01 19:49:51 ip-10-0-1-71 kernel: kauditd_printk_skb: 170 callbacks suppressed
+Nov 01 19:49:53 ip-10-0-1-71 (acpid)[630]: acpid.service: Referenced but unset environment variable evaluates to an empty string: OPTIONS
+Nov 01 19:49:53 ip-10-0-1-71 (cron)[635]: cron.service: Referenced but unset environment variable evaluates to an empty string: EXTRA_OPTS
+Nov 01 19:49:53 ip-10-0-1-71 (irqbalance)[647]: irqbalance.service: Referenced but unset environment variable evaluates to an empty string: IRQBALANCE_ARGS
+Nov 01 19:49:54 ip-10-0-1-71 kernel: nvme nvme0: using unchecked data buffer
+Nov 01 19:50:00 ip-10-0-1-71 chronyd[778]: System clock wrong by 1.497503 seconds
+Nov 01 19:50:01 ip-10-0-1-71 chronyd[778]: System clock was stepped by 1.497503 seconds
+Nov 01 19:50:05 ip-10-0-1-71 irqbalance[647]: Cannot change IRQ 63 affinity: Permission denied
+Nov 01 19:50:05 ip-10-0-1-71 irqbalance[647]: IRQ 63 affinity is now unmanaged
+Nov 01 19:50:05 ip-10-0-1-71 irqbalance[647]: Cannot change IRQ 64 affinity: Permission denied
+Nov 01 19:50:05 ip-10-0-1-71 irqbalance[647]: IRQ 64 affinity is now unmanaged
+
+Report generated on:
+Sun Nov  1 20:34:58 UTC 2026
